@@ -1,79 +1,41 @@
-import React, { useState, useEffect } from 'react';
-
-const testimonials = [
-  {
-    quote: "ECO me ajudou a processar emoções que eu nem sabia que estava reprimindo. É como ter um terapeuta sempre disponível.",
-    author: "Marina S.",
-    role: "Psicóloga",
-  },
-  {
-    quote: "Diferente de qualquer assistente virtual que já usei. A ECO realmente parece entender o que estou sentindo.",
-    author: "Carlos M.",
-    role: "Engenheiro de Software",
-  },
-  {
-    quote: "Meu diário emocional nunca foi tão profundo. A ECO me faz refletir de maneiras que eu jamais conseguiria sozinha.",
-    author: "Juliana P.",
-    role: "Artista Visual",
-  }
-];
+import React from 'react'; // Apenas React é necessário, sem useState e useEffect para esta versão
 
 const Testimonials: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  
-  useEffect(() => {
-    // Auto-rotate testimonials
-    const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % testimonials.length);
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, []);
+  // Defina a URL para onde o botão de feedback deve direcionar
+  const feedbackUrl = "https://feedback-eco.vercel.app"; // <<-- LINK ATUALIZADO AQUI
 
   return (
-    <section className="py-24 px-6 bg-white">
-      <div className="container mx-auto max-w-4xl">
-        <div className="relative">
-          <div className="absolute -left-4 -top-4 w-16 h-16 text-[#7A9EBF] opacity-30">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
-          </div>
-          
-          <div className="relative z-10 overflow-hidden h-64">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index} 
-                className={`absolute inset-0 transition-opacity duration-1000 flex flex-col items-center justify-center text-center px-4 ${
-                  index === activeIndex ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                <p className="text-xl md:text-2xl text-gray-700 font-light italic mb-8">
-                  "{testimonial.quote}"
-                </p>
-                <div>
-                  <p className="text-[#1D3557] font-medium">{testimonial.author}</p>
-                  <p className="text-gray-500 text-sm">{testimonial.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="flex justify-center mt-8 space-x-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === activeIndex 
-                    ? 'bg-[#7A9EBF] w-6' 
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
-          </div>
+    <section id="feedback" className="py-24 px-6 bg-white text-center"> {/* Adicionei o id="feedback" aqui para a navegação do Header */}
+      <div className="container mx-auto max-w-2xl">
+
+        {/* CONTEÚDO DE FEEDBACK */}
+        <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-6">
+          Queremos ouvir você!
+        </h2>
+        <p className="text-lg md:text-xl font-light text-gray-700 mb-6"> {/* Espaçamento ajustado */}
+          Ajude a tornar a ECO ainda melhor.
+          <br />
+          Clique no botão abaixo e deixe sua avaliação sincera.
+        </p>
+
+        {/* SETA ACIMA DO BOTÃO */}
+        <div className="mb-4"> {/* Margem inferior para espaçar a seta do botão */}
+          <svg className="w-6 h-6 text-black mx-auto animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
         </div>
+
+        {/* BOTÃO "Deixar meu feedback" com o estilo Apple-like - AGORA COMO UM LINK */}
+        <a
+          href={feedbackUrl}
+          target="_blank" // Abre o link em uma nova aba
+          rel="noopener noreferrer" // Recomendado por segurança para target="_blank"
+          className="inline-block px-8 py-4 rounded-xl bg-white text-gray-800 font-medium text-lg transition-all hover:scale-105 duration-300
+                     shadow-sm hover:shadow-md shadow-gray-300/50 hover:shadow-gray-400/50"
+        >
+          Deixar meu feedback
+        </a>
+
       </div>
     </section>
   );

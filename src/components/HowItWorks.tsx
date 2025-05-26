@@ -34,22 +34,27 @@ const steps = [
 
 const HowItWorks: React.FC = () => {
   const [activeStep, setActiveStep] = useState(1);
+  const orbBaseColor = '#7A9EBF'; // Definindo a cor base da bolha para ser a mesma da home
 
   return (
     <section id="como-funciona" className="py-24 px-6 bg-white">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl font-light text-[#1D3557] text-center mb-16">
+        {/* NOVO TÍTULO E DESCRIÇÃO PRINCIPAL */}
+        <h2 className="text-4xl md:text-5xl font-light text-[#1D3557] text-center mb-6">
           Como funciona?
         </h2>
-        
+        <p className="text-lg md:text-xl font-light text-gray-700 text-center max-w-3xl mx-auto mb-16">
+          Aqui, suas emoções são acolhidas com escuta e cuidado. Expresse-se livremente e receba um reflexo emocional para ajudar na sua própria compreensão e registro.
+        </p>
+
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Steps */}
           <div className="space-y-8">
             {steps.map((step) => (
-              <div 
+              <div
                 key={step.id}
                 className={`flex items-start cursor-pointer transition-all duration-300 ${
-                  activeStep === step.id 
+                  activeStep === step.id
                     ? 'transform scale-105'
                     : 'opacity-70 hover:opacity-100'
                 }`}
@@ -76,11 +81,11 @@ const HowItWorks: React.FC = () => {
               </div>
             ))}
           </div>
-          
+
           {/* Interactive Demo */}
           <div className="relative bg-gray-50 rounded-2xl p-8 h-96 overflow-hidden shadow-lg">
             <div className="absolute inset-0 bg-gradient-to-br from-[#7A9EBF]/10 to-[#F7CAC9]/10"></div>
-            
+
             {/* Different content based on active step */}
             <div className="relative h-full flex flex-col">
               {activeStep === 1 && (
@@ -94,16 +99,48 @@ const HowItWorks: React.FC = () => {
                   </div>
                 </div>
               )}
-              
+
               {activeStep === 2 && (
                 <div className="h-full flex flex-col items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-tr from-[#7A9EBF] to-[#F7CAC9]/70 shadow-lg flex items-center justify-center">
-                    <div className="w-24 h-24 rounded-full bg-white/30 backdrop-blur-sm animate-pulse"></div>
+                  {/* NOVA BOLHA DA PÁGINA INICIAL AQUI */}
+                  <div className="glass-bubble-container relative w-32 h-32 floating"> {/* Ajuste o tamanho conforme necessário */}
+                    {/* Main glass bubble */}
+                    <div
+                        className="absolute inset-0 rounded-full"
+                        style={{
+                            background: `radial-gradient(circle at 30% 30%, white 0%, ${orbBaseColor}10 30%, ${orbBaseColor}20 60%, ${orbBaseColor}30 100%)`,
+                            boxShadow: `0 8px 32px 0 rgba(31, 38, 135, 0.2),
+                                        inset 0 -10px 20px 0 ${orbBaseColor}30,
+                                        inset 0 10px 20px 0 rgba(255, 255, 255, 0.7)`,
+                            backdropFilter: 'blur(4px)',
+                            border: '1px solid rgba(255, 255, 255, 0.18)',
+                            transform: 'scale(1)',
+                            transition: 'transform 0.3s ease-out',
+                        }}
+                    />
+
+                    {/* Bottom shadow */}
+                    <div
+                        className="absolute bottom-0 left-1/2 w-3/4 h-4 rounded-full transform -translate-x-1/2 translate-y-10 opacity-40"
+                        style={{
+                            background: `radial-gradient(ellipse at center, ${orbBaseColor}80 0%, transparent 70%)`,
+                            filter: 'blur(4px)',
+                        }}
+                    />
+
+                    {/* Pulse animation */}
+                    <div
+                        className="absolute inset-0 rounded-full"
+                        style={{
+                            border: `1px solid ${orbBaseColor}30`,
+                            animation: 'pulse 2s infinite',
+                        }}
+                    />
                   </div>
                   <p className="text-center text-gray-600 mt-6">Analisando sentimentos...</p>
                 </div>
               )}
-              
+
               {activeStep === 3 && (
                 <div className="h-full flex flex-col">
                   <div className="text-sm text-gray-400 mb-2">Seu eco</div>
@@ -114,7 +151,7 @@ const HowItWorks: React.FC = () => {
                   </div>
                 </div>
               )}
-              
+
               {activeStep === 4 && (
                 <div className="h-full flex flex-col">
                   <div className="text-sm text-gray-400 mb-2">Seu diário</div>
@@ -134,10 +171,12 @@ const HowItWorks: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
+        {/* Removido: Frase "Como água, espelhando a lua.."
         <div className="text-center mt-16 italic text-gray-500">
           "Como água, espelhando a lua.."
         </div>
+        */}
       </div>
     </section>
   );

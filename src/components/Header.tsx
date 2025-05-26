@@ -9,84 +9,102 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navItems = [
+    { name: 'Como funciona', href: '#como-funciona' },
+    { name: 'Privacidade', href: '#privacidade' },
+    { name: 'Feedback', href: '#feedback' },
+  ];
+
+  // URL para o botão de login/cadastro
+  const loginRegisterUrl = "https://eco666.vercel.app";
+
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' 
+        isScrolled
+          ? 'bg-white/90 backdrop-blur-md shadow-sm py-4'
           : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#7A9EBF] to-[#F7CAC9] mr-3 flex items-center justify-center">
-            <div className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#7A9EBF] to-[#F7CAC9]"></div>
-            </div>
-          </div>
           <span className={`text-2xl font-light transition-colors duration-300 ${
-            isScrolled ? 'text-[#1D3557]' : 'text-white'
+            isScrolled ? 'text-[#1D3557]' : 'text-gray-800'
           }`}>
             ECO
           </span>
         </div>
-        
+
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {['Como funciona', 'Privacidade', 'Sobre', 'Contato'].map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase().replace(' ', '-')}`}
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
               className={`font-light text-sm hover:opacity-75 transition-opacity ${
-                isScrolled ? 'text-[#1D3557]' : 'text-white'
+                isScrolled ? 'text-[#1D3557]' : 'text-gray-700'
               }`}
             >
-              {item}
+              {item.name}
             </a>
           ))}
-          <button className="px-5 py-2 rounded-full bg-gradient-to-r from-[#7A9EBF] to-[#F7CAC9] text-white font-medium text-sm transition-transform hover:scale-105">
+          {/* BOTÃO DESKTOP - ESTILO APPLE-LIKE */}
+          {/* Alterado para um link <a> */}
+          <a
+            href={loginRegisterUrl}
+            target="_blank" // Abre em uma nova aba
+            rel="noopener noreferrer"
+            className="px-5 py-2 rounded-xl bg-white text-gray-800 font-medium text-sm transition-transform hover:scale-105
+              shadow-sm hover:shadow-md shadow-gray-300/50 hover:shadow-gray-400/50"
+          >
             Entrar / Cadastrar
-          </button>
+          </a>
         </nav>
-        
+
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          {isMenuOpen 
-            ? <X className={isScrolled ? 'text-[#1D3557]' : 'text-white'} /> 
-            : <Menu className={isScrolled ? 'text-[#1D3557]' : 'text-white'} />
+          {isMenuOpen
+            ? <X className={isScrolled ? 'text-[#1D3557]' : 'text-gray-700'} />
+            : <Menu className={isScrolled ? 'text-[#1D3557]' : 'text-gray-700'} />
           }
         </button>
       </div>
-      
+
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 bg-white z-40 pt-20 px-6 flex flex-col md:hidden">
           <nav className="flex flex-col space-y-6 py-8">
-            {['Como funciona', 'Privacidade', 'Sobre', 'Contato'].map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
                 className="text-[#1D3557] text-xl font-light"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {item}
+                {item.name}
               </a>
             ))}
           </nav>
-          <button 
-            className="mt-auto mb-10 py-4 rounded-full bg-gradient-to-r from-[#7A9EBF] to-[#F7CAC9] text-white font-medium"
-            onClick={() => setIsMenuOpen(false)}
+          {/* BOTÃO MOBILE - ESTILO APPLE-LIKE */}
+          {/* Alterado para um link <a> */}
+          <a
+            href={loginRegisterUrl}
+            target="_blank" // Abre em uma nova aba
+            rel="noopener noreferrer"
+            className="mt-auto mb-10 py-4 rounded-xl bg-white text-gray-800 font-medium transition-all hover:scale-105 duration-300
+              shadow-sm hover:shadow-md shadow-gray-300/50 hover:shadow-gray-400/50"
+            onClick={() => setIsMenuOpen(false)} // Fecha o menu ao clicar
           >
             Entrar / Cadastrar
-          </button>
+          </a>
         </div>
       )}
     </header>

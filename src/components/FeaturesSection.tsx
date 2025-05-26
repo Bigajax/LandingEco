@@ -9,8 +9,8 @@ const features = [
     color: "from-[#7A9EBF] to-[#7A9EBF]/70"
   },
   {
-    title: "Uma IA com alma",
-    description: "ECO não responde como uma máquina. Ela escuta como uma presença amiga. Ela devolve reflexões que ressoam com sua essência.",
+    title: "Escuta sensível",
+    description: "ECO escuta com atenção e oferece reflexões que respeitam e acolhem sua singularidade.",
     icon: Heart,
     color: "from-[#F7CAC9] to-[#F7CAC9]/70"
   },
@@ -24,11 +24,21 @@ const features = [
 
 const FeaturesSection: React.FC = () => {
   return (
-    <section className="py-24 px-6 bg-gray-50">
+    <section id="privacidade" className="py-24 px-6 bg-[#F8F6FA]">
       <div className="container mx-auto max-w-6xl">
+        {/* Título e Subtítulo com quebra de linha */}
+        <h2 className="text-4xl md:text-5xl font-light text-[#1D3557] text-center mb-4">
+          O que nos guia
+        </h2>
+        <p className="text-lg md:text-xl font-light text-gray-700 text-center mb-16 max-w-3xl mx-auto">
+          Comprometidos com a sua segurança, acolhimento e desenvolvimento emocional.
+          <br /> {/* Adicionei a quebra de linha aqui */}
+          Aqui, cada interação é protegida, ouvida com sensibilidade e transformada em reflexões que ampliam sua autoconsciência.
+        </p>
+
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={index}
               className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
