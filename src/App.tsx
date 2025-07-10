@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
+import ExploreSection from './components/ExploreSection';
 import FeaturesSection from './components/FeaturesSection';
 import Testimonials from './components/Testimonials';
 import CallToAction from './components/CallToAction';
@@ -41,6 +42,7 @@ function App() {
       <Header />
       <Hero />
       <HowItWorks />
+      <ExploreSection />       {/* ✅ Nova seção adicionada aqui */}
       <FeaturesSection />
       <Testimonials />
       <CallToAction />

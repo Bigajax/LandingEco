@@ -16,12 +16,23 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Como funciona', href: '#como-funciona' },
+    { name: 'Recursos', href: '#recursos' },
     { name: 'Privacidade', href: '#privacidade' },
     { name: 'Feedback', href: '#feedback' },
   ];
 
   // URL para o botão de login/cadastro
   const loginRegisterUrl = "https://eco666.vercel.app";
+
+  // Função para scroll suave
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <header
@@ -46,6 +57,11 @@ const Header: React.FC = () => {
             <a
               key={item.name}
               href={item.href}
+              onClick={(e) => {
+                if (item.href.startsWith('#')) {
+                  handleSmoothScroll(e, item.href.substring(1));
+                }
+              }}
               className={`font-light text-sm hover:opacity-75 transition-opacity ${
                 isScrolled ? 'text-[#1D3557]' : 'text-gray-700'
               }`}
@@ -53,11 +69,9 @@ const Header: React.FC = () => {
               {item.name}
             </a>
           ))}
-          {/* BOTÃO DESKTOP - ESTILO APPLE-LIKE */}
-          {/* Alterado para um link <a> */}
           <a
             href={loginRegisterUrl}
-            target="_blank" // Abre em uma nova aba
+            target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2 rounded-xl bg-white text-gray-800 font-medium text-sm transition-transform hover:scale-105
               shadow-sm hover:shadow-md shadow-gray-300/50 hover:shadow-gray-400/50"
@@ -86,22 +100,24 @@ const Header: React.FC = () => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => {
+                  if (item.href.startsWith('#')) {
+                    handleSmoothScroll(e, item.href.substring(1));
+                  }
+                }}
                 className="text-[#1D3557] text-xl font-light"
-                onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </a>
             ))}
           </nav>
-          {/* BOTÃO MOBILE - ESTILO APPLE-LIKE */}
-          {/* Alterado para um link <a> */}
           <a
             href={loginRegisterUrl}
-            target="_blank" // Abre em uma nova aba
+            target="_blank"
             rel="noopener noreferrer"
             className="mt-auto mb-10 py-4 rounded-xl bg-white text-gray-800 font-medium transition-all hover:scale-105 duration-300
               shadow-sm hover:shadow-md shadow-gray-300/50 hover:shadow-gray-400/50"
-            onClick={() => setIsMenuOpen(false)} // Fecha o menu ao clicar
+            onClick={() => setIsMenuOpen(false)}
           >
             Entrar / Cadastrar
           </a>

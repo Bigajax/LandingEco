@@ -34,12 +34,13 @@ const steps = [
 
 const HowItWorks: React.FC = () => {
   const [activeStep, setActiveStep] = useState(1);
-  const orbBaseColor = '#7A9EBF'; // Definindo a cor base da bolha para ser a mesma da home
+  const orbBaseColor = '#7A9EBF';
 
   return (
     <section id="como-funciona" className="py-24 px-6 bg-white">
       <div className="container mx-auto max-w-6xl">
-        {/* NOVO TÍTULO E DESCRIÇÃO PRINCIPAL */}
+
+        {/* TÍTULO PRINCIPAL */}
         <h2 className="text-4xl md:text-5xl font-light text-[#1D3557] text-center mb-6">
           Como funciona?
         </h2>
@@ -48,15 +49,13 @@ const HowItWorks: React.FC = () => {
         </p>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Steps */}
+          {/* STEPS */}
           <div className="space-y-8">
             {steps.map((step) => (
               <div
                 key={step.id}
                 className={`flex items-start cursor-pointer transition-all duration-300 ${
-                  activeStep === step.id
-                    ? 'transform scale-105'
-                    : 'opacity-70 hover:opacity-100'
+                  activeStep === step.id ? 'transform scale-105' : 'opacity-70 hover:opacity-100'
                 }`}
                 onClick={() => setActiveStep(step.id)}
               >
@@ -82,65 +81,55 @@ const HowItWorks: React.FC = () => {
             ))}
           </div>
 
-          {/* Interactive Demo */}
+          {/* DEMO INTERATIVO */}
           <div className="relative bg-gray-50 rounded-2xl p-8 h-96 overflow-hidden shadow-lg">
             <div className="absolute inset-0 bg-gradient-to-br from-[#7A9EBF]/10 to-[#F7CAC9]/10"></div>
-
-            {/* Different content based on active step */}
             <div className="relative h-full flex flex-col">
               {activeStep === 1 && (
                 <div className="h-full flex flex-col">
                   <div className="text-sm text-gray-400 mb-2">Sua expressão</div>
                   <div className="bg-white rounded-lg p-4 shadow-sm mb-auto">
-                    <p className="text-gray-700 font-light">Hoje eu me senti perdido, como se estivesse caminhando em círculos...</p>
+                    <p className="text-gray-700 font-light">
+                      Hoje eu me senti perdido, como se estivesse caminhando em círculos...
+                    </p>
                   </div>
                   <div className="h-12 bg-white rounded-lg mt-4 shadow-sm flex items-center px-4 text-gray-400">
                     Escreva aqui...
                   </div>
                 </div>
               )}
-
               {activeStep === 2 && (
                 <div className="h-full flex flex-col items-center justify-center">
-                  {/* NOVA BOLHA DA PÁGINA INICIAL AQUI */}
-                  <div className="glass-bubble-container relative w-32 h-32 floating"> {/* Ajuste o tamanho conforme necessário */}
-                    {/* Main glass bubble */}
+                  <div className="glass-bubble-container relative w-32 h-32 floating">
                     <div
-                        className="absolute inset-0 rounded-full"
-                        style={{
-                            background: `radial-gradient(circle at 30% 30%, white 0%, ${orbBaseColor}10 30%, ${orbBaseColor}20 60%, ${orbBaseColor}30 100%)`,
-                            boxShadow: `0 8px 32px 0 rgba(31, 38, 135, 0.2),
-                                        inset 0 -10px 20px 0 ${orbBaseColor}30,
-                                        inset 0 10px 20px 0 rgba(255, 255, 255, 0.7)`,
-                            backdropFilter: 'blur(4px)',
-                            border: '1px solid rgba(255, 255, 255, 0.18)',
-                            transform: 'scale(1)',
-                            transition: 'transform 0.3s ease-out',
-                        }}
+                      className="absolute inset-0 rounded-full"
+                      style={{
+                        background: `radial-gradient(circle at 30% 30%, white 0%, ${orbBaseColor}10 30%, ${orbBaseColor}20 60%, ${orbBaseColor}30 100%)`,
+                        boxShadow: `0 8px 32px 0 rgba(31, 38, 135, 0.2),
+                                    inset 0 -10px 20px 0 ${orbBaseColor}30,
+                                    inset 0 10px 20px 0 rgba(255, 255, 255, 0.7)`,
+                        backdropFilter: 'blur(4px)',
+                        border: '1px solid rgba(255, 255, 255, 0.18)'
+                      }}
                     />
-
-                    {/* Bottom shadow */}
                     <div
-                        className="absolute bottom-0 left-1/2 w-3/4 h-4 rounded-full transform -translate-x-1/2 translate-y-10 opacity-40"
-                        style={{
-                            background: `radial-gradient(ellipse at center, ${orbBaseColor}80 0%, transparent 70%)`,
-                            filter: 'blur(4px)',
-                        }}
+                      className="absolute bottom-0 left-1/2 w-3/4 h-4 rounded-full transform -translate-x-1/2 translate-y-10 opacity-40"
+                      style={{
+                        background: `radial-gradient(ellipse at center, ${orbBaseColor}80 0%, transparent 70%)`,
+                        filter: 'blur(4px)',
+                      }}
                     />
-
-                    {/* Pulse animation */}
                     <div
-                        className="absolute inset-0 rounded-full"
-                        style={{
-                            border: `1px solid ${orbBaseColor}30`,
-                            animation: 'pulse 2s infinite',
-                        }}
+                      className="absolute inset-0 rounded-full"
+                      style={{
+                        border: `1px solid ${orbBaseColor}30`,
+                        animation: 'pulse 2s infinite'
+                      }}
                     />
                   </div>
                   <p className="text-center text-gray-600 mt-6">Analisando sentimentos...</p>
                 </div>
               )}
-
               {activeStep === 3 && (
                 <div className="h-full flex flex-col">
                   <div className="text-sm text-gray-400 mb-2">Seu eco</div>
@@ -151,7 +140,6 @@ const HowItWorks: React.FC = () => {
                   </div>
                 </div>
               )}
-
               {activeStep === 4 && (
                 <div className="h-full flex flex-col">
                   <div className="text-sm text-gray-400 mb-2">Seu diário</div>
@@ -172,11 +160,24 @@ const HowItWorks: React.FC = () => {
           </div>
         </div>
 
-        {/* Removido: Frase "Como água, espelhando a lua.."
-        <div className="text-center mt-16 italic text-gray-500">
-          "Como água, espelhando a lua.."
+        {/* EVIDÊNCIA CIENTÍFICA EMBAIXO */}
+        <div className="mt-16 max-w-2xl mx-auto border border-gray-100 rounded-xl bg-white shadow-sm px-6 py-8 text-center">
+          <h3 className="text-lg md:text-xl font-medium text-[#1D3557] mb-3">
+            Evidência científica
+          </h3>
+          <p className="text-gray-600 mb-4 text-sm md:text-base">
+            Escrever sobre emoções ajuda a reduzir estresse e organizar pensamentos. Estudos demonstram benefícios claros para clareza emocional.
+          </p>
+          <div className="flex items-center justify-center mt-4 space-x-2 text-sm text-gray-500">
+            <span className="text-xl">🎓</span>
+            <span className="text-[0.9rem]">
+              Pesquisa de James W. Pennebaker
+              <span className="block text-[0.85rem] mt-0.5 italic text-[#7A9EBF]/80">
+                University of Texas
+              </span>
+            </span>
+          </div>
         </div>
-        */}
       </div>
     </section>
   );
