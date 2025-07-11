@@ -14,11 +14,11 @@ const CallToAction: React.FC = () => {
 
       <div className="container mx-auto max-w-3xl relative z-10">
         <h2 className="text-4xl md:text-5xl font-light text-[#1D3557] mb-5">
-          Comece sua jornada de <span className="font-normal whitespace-nowrap">autoconhecimento</span>
+          O diário inteligente que <span className="font-normal whitespace-nowrap">te escuta de verdade</span>
         </h2>
 
         <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          Participe da versão beta e experimente um jeito único de explorar suas emoções, construindo mais consciência e equilíbrio no dia a dia.
+          Receba reflexos empáticos, registre automaticamente momentos importantes e veja sua evolução emocional.
         </p>
 
         <a
@@ -28,7 +28,7 @@ const CallToAction: React.FC = () => {
           className="inline-block px-8 py-4 rounded-2xl bg-white text-[#1D3557] font-medium text-lg transition-all duration-300
                      shadow hover:shadow-md hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#7A9EBF]/50 mb-6"
         >
-          Quero participar
+          Comece a escrever com a Eco
         </a>
 
         <div className="text-green-600 mt-6 text-sm font-medium">
