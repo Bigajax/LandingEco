@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'; 
 import Header from './components/Header';
 import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
 import ExploreSection from './components/ExploreSection';
+import DeepBenefitsSection from './components/DeepBenefitsSection';  // ✅ Importado ANTES
 import FeaturesSection from './components/FeaturesSection';
 import Testimonials from './components/Testimonials';
 import CallToAction from './components/CallToAction';
@@ -10,10 +11,8 @@ import Footer from './components/Footer';
 
 function App() {
   useEffect(() => {
-    // Update the page title
     document.title = "ECO - Converse com seu Eu interior";
-    
-    // Add animation for orb elements
+
     const style = document.createElement('style');
     style.innerHTML = `
       @keyframes orb-float {
@@ -31,18 +30,19 @@ function App() {
       }
     `;
     document.head.appendChild(style);
-    
+
     return () => {
       document.head.removeChild(style);
     };
   }, []);
-  
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
       <Hero />
       <HowItWorks />
-      <ExploreSection />       {/* ✅ Nova seção adicionada aqui */}
+      <ExploreSection />
+      <DeepBenefitsSection />     {/* ✅ AGORA ANTES do FeaturesSection */}
       <FeaturesSection />
       <Testimonials />
       <CallToAction />

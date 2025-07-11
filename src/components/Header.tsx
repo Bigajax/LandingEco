@@ -14,17 +14,17 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // ✅ Agora inclui a aba Benefícios
   const navItems = [
     { name: 'Como funciona', href: '#como-funciona' },
     { name: 'Recursos', href: '#recursos' },
+    { name: 'Benefícios', href: '#beneficios' },     // ✅ NOVA LINHA AQUI
     { name: 'Privacidade', href: '#privacidade' },
     { name: 'Feedback', href: '#feedback' },
   ];
 
-  // URL para o botão de login/cadastro
   const loginRegisterUrl = "https://eco666.vercel.app";
 
-  // Função para scroll suave
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     const el = document.getElementById(targetId);

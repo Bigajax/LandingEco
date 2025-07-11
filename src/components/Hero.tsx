@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [animateOrb, setAnimateOrb] = useState(false);
@@ -15,85 +16,65 @@ const Hero: React.FC = () => {
   const experienceUrl = "https://eco666.vercel.app";
 
   return (
-    <section className="relative min-h-screen bg-[#F8F6FA] flex flex-col items-center justify-center text-center px-6 pt-20 pb-20 overflow-hidden">
+    <section className="relative min-h-[90vh] bg-[#F8F6FA] flex items-center justify-center px-6 overflow-hidden">
       
-      {/* Background blobs */}
+      {/* Soft Background Blobs */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] md:w-[20vw] md:h-[20vw] rounded-full bg-[#E0BBE4] opacity-20 blur-[100px] animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-[45vw] h-[45vw] md:w-[25vw] md:h-[25vw] rounded-full bg-[#957DAD] opacity-20 blur-[120px] animate-pulse delay-1000"></div>
+        <div className="absolute top-1/3 left-1/4 w-[40vw] h-[40vw] rounded-full bg-[#E0BBE4] opacity-10 blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[40vw] h-[40vw] rounded-full bg-[#957DAD] opacity-10 blur-[120px]" />
       </div>
 
-      <div className="container mx-auto max-w-4xl relative z-10 flex flex-col items-center justify-center">
+      <div className="relative z-10 container mx-auto max-w-6xl flex flex-col md:flex-row items-center md:items-center gap-12 md:gap-20">
         
-        {/* Floating Glass Bubble */}
-        <div className={`relative mb-16 transition-all duration-1000 ${animateOrb ? 'scale-100 opacity-100' : 'scale-90 opacity-0'}`}>
-          <div className="glass-bubble-container relative w-48 h-48 sm:w-64 sm:h-64 floating">
+        {/* Animated Orb */}
+        <div className={`flex-shrink-0 transition-all duration-1000 ${animateOrb ? 'scale-100 opacity-100' : 'scale-90 opacity-0'}`}>
+          <div className="relative w-48 h-48 sm:w-56 sm:h-56">
             <div
               className="absolute inset-0 rounded-full"
               style={{
                 background: `radial-gradient(circle at 30% 30%, white 0%, ${orbBaseColor}10 30%, ${orbBaseColor}20 60%, ${orbBaseColor}30 100%)`,
-                boxShadow: `0 8px 32px 0 rgba(31, 38, 135, 0.2),
-                            inset 0 -10px 20px 0 ${orbBaseColor}30,
-                            inset 0 10px 20px 0 rgba(255, 255, 255, 0.7)`,
-                backdropFilter: 'blur(4px)',
-                border: '1px solid rgba(255, 255, 255, 0.18)',
-              }}
-            />
-            <div
-              className="absolute bottom-0 left-1/2 w-3/4 h-4 rounded-full transform -translate-x-1/2 translate-y-10 opacity-40"
-              style={{
-                background: `radial-gradient(ellipse at center, ${orbBaseColor}80 0%, transparent 70%)`,
-                filter: 'blur(4px)',
-              }}
-            />
-            <div
-              className="absolute inset-0 rounded-full"
-              style={{
-                border: `1px solid ${orbBaseColor}30`,
-                animation: 'pulse 2s infinite',
+                boxShadow: `0 8px 32px 0 rgba(31, 38, 135, 0.12),
+                            inset 0 -10px 20px 0 ${orbBaseColor}20,
+                            inset 0 10px 20px 0 rgba(255, 255, 255, 0.6)`,
+                backdropFilter: 'blur(6px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
               }}
             />
           </div>
         </div>
 
-        {/* NOVO TÍTULO */}
-        <h1 className="text-4xl md:text-6xl font-light text-gray-800 mb-8 transition-all duration-1000 delay-300">
-          Um lugar para colocar suas emoções em palavras
-        </h1>
+        {/* Text Content */}
+        <div className="max-w-2xl text-center md:text-left">
+          
+          {/* Micro-headline */}
+          <p className="text-sm md:text-base text-[#7A9EBF] uppercase tracking-wider mb-6">
+            Seu diário inteligente
+          </p>
 
-        {/* SUBTÍTULO mais profundo */}
-        <p className="text-lg md:text-xl font-light max-w-2xl mx-auto mb-6 text-gray-700">
-          Receba um reflexo cuidadoso para se conhecer melhor.
-        </p>
+          {/* Headline */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-[#1D3557] mb-6 leading-snug">
+            Transforme emoções em <span className="font-medium">autoconhecimento</span>
+          </h1>
 
-        {/* Frase de Versão Beta */}
-        <div className="text-green-600 inline-flex items-center font-medium mb-6 transition-all duration-1000 delay-500">
-          <span className="inline-block w-2 h-2 rounded-full bg-green-600 mr-2"></span>
-          Seja um dos primeiros a experimentar e opinar
+          {/* Subheadline */}
+          <p className="text-base md:text-lg text-gray-700 mb-10 leading-relaxed opacity-90 max-w-xl mx-auto md:mx-0">
+            A Eco acolhe suas emoções mais marcantes e devolve reflexões sensíveis. Encontre clareza para crescer com mais profundidade.
+          </p>
+
+          {/* Call to Action */}
+          <div className="flex flex-col items-center md:items-start">
+            <p className="text-sm text-[#7A9EBF] mb-2">Comece sua jornada hoje</p>
+            <a
+              href={experienceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-2xl bg-white/60 backdrop-blur-lg border border-white/30 text-[#1D3557] font-medium text-lg transition-all duration-300 shadow-sm hover:shadow-lg hover:scale-[1.05] hover:bg-white/70"
+            >
+              <span>Começar agora</span>
+              <ArrowRight size={20} className="stroke-1.5 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </div>
         </div>
-
-        {/* Descrição Principal */}
-        <p className="text-lg md:text-xl font-light max-w-2xl mx-auto mb-6 transition-all duration-1000 delay-700">
-          Um diário interativo com IA que transforma desabafos em reflexões. Um convite a se ouvir com atenção — e se entender melhor.
-        </p>
-
-        {/* Ícone Seta */}
-        <div className="mb-4">
-          <svg className="w-6 h-6 text-black mx-auto animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
-
-        {/* Botão */}
-        <a
-          href={experienceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-8 py-4 rounded-xl bg-white text-gray-800 font-medium text-lg transition-all hover:scale-105 duration-300
-            shadow-sm hover:shadow-md shadow-gray-300/50 hover:shadow-gray-400/50"
-        >
-          Quero experimentar
-        </a>
       </div>
     </section>
   );
