@@ -11,27 +11,27 @@ const benefits: Benefit[] = [
   {
     icon: <Headphones size={22} strokeWidth={1.2} />,
     title: 'Autoescuta Radical',
-    description: 'Aprenda a se ouvir sem filtros. Sua escrita como espelho honesto para emoções e pensamentos que você evita ver.'
+    description: 'Aprenda a se escutar com honestidade. Use sua escrita para reconhecer emoções e pensamentos sem julgamentos.'
   },
   {
     icon: <Sparkles size={22} strokeWidth={1.2} />,
     title: 'Clareza Intencional',
-    description: 'Transforme pensamentos dispersos em clareza emocional que sustenta escolhas melhores.'
+    description: 'Organize pensamentos confusos e transforme em clareza para tomar decisões mais conscientes.'
   },
   {
     icon: <Flame size={22} strokeWidth={1.2} />,
     title: 'Ritual de Consciência',
-    description: 'Torne o hábito de escrever um espaço sagrado para si. Desacelere, conecte-se e cultive significado.'
+    description: 'Transforme o escrever em um ritual de presença. Desacelere, conecte-se consigo e encontre sentido no que vive.'
   },
   {
     icon: <Waves size={22} strokeWidth={1.2} />,
     title: 'Navegação Emocional',
-    description: 'Em vez de ser arrastado por emoções, aprenda a navegá-las. Encare medos, alegrias e compreenda suas causas.'
+    description: 'Aprenda a navegar suas emoções. Encare medos e alegrias com consciência para compreender suas causas.'
   },
   {
     icon: <Layers size={22} strokeWidth={1.2} />,
     title: 'Construção de Sentido',
-    description: 'Use sua escrita para dar significado aos seus dias. Reflita sobre padrões e transforme confusão em propósito.'
+    description: 'Use a escrita para dar significado ao que sente. Reflita sobre padrões e transforme confusão em clareza e propósito.'
   }
 ];
 
@@ -48,8 +48,8 @@ const BenefitsAccordion: React.FC = () => {
         <h2 className="text-4xl md:text-5xl font-light text-[#1D3557] mb-3">
           Convites para aprofundar sua jornada
         </h2>
-        <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed font-light">
-          Explore reflexões mais profundas, transforme sua escrita em autoconhecimento vivo e encontre clareza onde antes havia apenas confusão.
+        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
+          Explore reflexões guiadas para transformar confusão em clareza. Organize pensamentos, compreenda emoções e tome decisões mais conscientes.
         </p>
       </div>
 

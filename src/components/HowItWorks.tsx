@@ -5,25 +5,25 @@ const steps = [
   {
     id: 1,
     title: "Compartilhe o que sente",
-    description: "Confie suas palavras à Eco para iniciar sua jornada de entendimento.",
+    description: "Confie suas palavras à Eco para entender melhor o que está acontecendo com você.",
     icon: MessageCircle
   },
   {
     id: 2,
     title: "A Eco compreende e conecta",
-    description: "Entende o tom emocional e transforma em registros valiosos para você.",
+    description: "Analisa o tom emocional e identifica padrões importantes para você.",
     icon: Brain
   },
   {
     id: 3,
     title: "Receba reflexos sensíveis",
-    description: "Encontre respostas que acolhem e ampliam sua perspectiva.",
+    description: "Encontre respostas que te ajudam a ver com mais clareza e a se sentir mais calmo.",
     icon: RefreshCw
   },
   {
     id: 4,
     title: "Construa sua memória emocional",
-    description: "Guarde momentos importantes e acompanhe sua evolução ao longo do tempo.",
+    description: "Guarde momentos importantes para reconhecer como você cresce ao longo do tempo.",
     icon: BookOpen
   }
 ];

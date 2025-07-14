@@ -47,23 +47,23 @@ const Hero: React.FC = () => {
         <div className="max-w-2xl text-center md:text-left">
           
           {/* Micro-headline */}
-          <p className="text-sm md:text-base text-[#7A9EBF] uppercase tracking-wider mb-6">
+          <p className="text-sm md:text-base text-[#7A9EBF] uppercase tracking-wider font-light mb-4">
             Seu diário inteligente
           </p>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-[#1D3557] mb-6 leading-snug">
-            Transforme emoções em <span className="font-medium">autoconhecimento</span>
+            Entenda suas emoções. <span className="font-medium">Ganhe clareza.</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base md:text-lg text-gray-700 mb-10 leading-relaxed opacity-90 max-w-xl mx-auto md:mx-0">
-            A Eco acolhe suas emoções mais marcantes e devolve reflexões sensíveis. Encontre clareza para crescer com mais profundidade.
+          <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-xl mx-auto md:mx-0 font-light">
+            A Eco te ajuda a transformar sentimentos confusos em insights claros para agir com mais segurança e consciência.
           </p>
 
           {/* Call to Action */}
           <div className="flex flex-col items-center md:items-start">
-            <p className="text-sm text-[#7A9EBF] mb-2">Comece sua jornada hoje</p>
+            <p className="text-sm text-[#7A9EBF] mb-2 font-light">Comece sua jornada hoje</p>
             <a
               href={experienceUrl}
               target="_blank"

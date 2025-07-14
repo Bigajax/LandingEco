@@ -10,13 +10,44 @@ import { Chart, CategoryScale, LinearScale, PointElement, LineElement, BarElemen
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend);
 
 const features = [
-  { id: 1, title: "Registro de Memórias", contentDescription: "Escreva sobre o que sente. A Eco identifica padrões emocionais e salva memórias importantes para você refletir depois.", icon: BookOpen },
-  { id: 2, title: "Linha do Tempo Emocional", contentDescription: "Visualize suas emoções ao longo do tempo. Observe mudanças, ciclos e o caminho que vem percorrendo.", icon: Clock },
-  { id: 3, title: "Perfil Emocional", contentDescription: "Encontre as emoções mais recorrentes em você. Um retrato honesto para perceber padrões e se compreender com mais profundidade.", icon: Search },
-  { id: 4, title: "Relatório Emocional", contentDescription: "Explore sua variação emocional em um gráfico com valência e excitação. Um convite para refletir sobre o que te move.", icon: BarChart2 },
-  { id: 5, title: "Referências Cruzadas", contentDescription: "A Eco estuda padrões e mostra como diferentes memórias se conectam, ajudando você a reconhecer histórias que se entrelaçam com clareza.", icon: Shuffle },
-  { id: 6, title: "Reflexo em Tempo Real", contentDescription: "Troque mensagens empáticas para explorar seus sentimentos com mais profundidade e se escutar de verdade.", icon: Eye }
+  {
+    id: 1,
+    title: "Registro de Memórias",
+    contentDescription: "Escreva o que sente. A Eco te ajuda a organizar pensamentos e identificar padrões importantes para refletir depois.",
+    icon: BookOpen
+  },
+  {
+    id: 2,
+    title: "Linha do Tempo Emocional",
+    contentDescription: "Acompanhe suas emoções ao longo do tempo. Veja mudanças e ciclos para reconhecer como você está evoluindo.",
+    icon: Clock
+  },
+  {
+    id: 3,
+    title: "Perfil Emocional",
+    contentDescription: "Entenda quais emoções são mais presentes em você. Reconheça padrões e compreenda melhor o que sente.",
+    icon: Search
+  },
+  {
+    id: 4,
+    title: "Relatório Emocional",
+    contentDescription: "Visualize sua variação emocional em gráficos para entender melhor o que te move e como reagir com mais clareza.",
+    icon: BarChart2
+  },
+  {
+    id: 5,
+    title: "Referências Cruzadas",
+    contentDescription: "Veja como diferentes memórias se conectam para entender histórias que se repetem e encontrar clareza para agir diferente.",
+    icon: Shuffle
+  },
+  {
+    id: 6,
+    title: "Reflexo em Tempo Real",
+    contentDescription: "Converse em tempo real para explorar sentimentos, organizar pensamentos e ganhar clareza para agir.",
+    icon: Eye
+  }
 ];
+
 
 const appleChartOptions = {
   responsive: true,
@@ -77,8 +108,8 @@ const FeaturesSection: React.FC = () => {
             Para se conhecer melhor
           </h2>
           <p className="text-lg md:text-xl font-light text-gray-500 max-w-3xl mx-auto">
-            Apoio para você refletir, se conhecer e registrar sua jornada com clareza.
-          </p>
+  Apoio para transformar momentos de confusão em clareza emocional. Organize seus sentimentos e acompanhe sua evolução com cuidado.
+</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-start">
@@ -185,28 +216,36 @@ const FeaturesSection: React.FC = () => {
             )}
 
             {active?.id === 4 && (
-              <Scatter
-                data={{
-                  datasets: [{
-                    label: 'Mapa Emocional',
-                    data: Array.from({ length: 50 }, () => ({
-                      x: Math.random() * 10 - 5,
-                      y: Math.random() * 10 - 5
-                    })),
-                    backgroundColor: 'rgba(122,158,191,0.5)',
-                    pointRadius: 5,
-                    pointHoverRadius: 7
-                  }]
-                }}
-                options={{
-                  ...appleChartOptions,
-                  scales: {
-                    x: { title: { display: true, text: 'Valência', color: '#4B5563' }, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#6B7280' } },
-                    y: { title: { display: true, text: 'Excitação', color: '#4B5563' }, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#6B7280' } }
-                  }
-                }}
-              />
-            )}
+  <>
+    <Scatter
+      data={{
+        datasets: [{
+          label: 'Mapa Emocional',
+          data: Array.from({ length: 50 }, () => ({
+            x: Math.random() * 10 - 5,
+            y: Math.random() * 10 - 5
+          })),
+          backgroundColor: 'rgba(122,158,191,0.5)',
+          pointRadius: 5,
+          pointHoverRadius: 7
+        }]
+      }}
+      options={{
+        ...appleChartOptions,
+        scales: {
+          x: { title: { display: true, text: 'Valência', color: '#4B5563' }, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#6B7280' } },
+          y: { title: { display: true, text: 'Excitação', color: '#4B5563' }, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#6B7280' } }
+        }
+      }}
+    />
+
+    <div className="mt-4 text-sm text-gray-500">
+      <p><strong>Valência:</strong> indica se a emoção é mais positiva ou negativa.</p>
+      <p><strong>Excitação:</strong> mostra a intensidade de calma até agitação.</p>
+    </div>
+  </>
+)}
+
 
             {active?.id === 5 && (
               <div className="p-4 rounded-2xl bg-white/60 backdrop-blur shadow border border-gray-100">

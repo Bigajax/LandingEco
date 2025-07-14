@@ -3,21 +3,21 @@ import { Shield, Heart, Brain } from 'lucide-react';
 
 const features = [
   {
-    title: "Confiar no Silêncio",
+    title: "Espaço Seguro",
     description:
-      "Acolher a intimidade como um espaço protegido onde as palavras podem surgir sem medo.",
+      "Um ambiente protegido para você expressar sentimentos e pensamentos sem medo ou julgamento.",
     icon: Shield,
   },
   {
     title: "Escuta Presente",
     description:
-      "Ouvir com atenção viva, refletir com cuidado, e devolver o que acolhe quem você é.",
+      "Ler com atenção verdadeira, refletir com cuidado e devolver uma resposta que respeita quem você é.",
     icon: Heart,
   },
   {
     title: "Perspectiva Emocional",
     description:
-      "Ver além do imediato, reconhecendo nuances para encontrar clareza no sentir.",
+      "Ajudar você a enxergar além do óbvio, reconhecendo nuances para transformar confusão em clareza.",
     icon: Brain,
   }
 ];
@@ -27,10 +27,10 @@ const FeaturesSection: React.FC = () => {
     <section id="privacidade" className="py-16 md:py-20 px-6 bg-[#F8F6FA]">
       <div className="max-w-4xl mx-auto text-center mb-14">
         <h2 className="text-4xl md:text-5xl font-light text-[#1D3557] mb-3">
-          O que nos guia
+          Nossos princípios
         </h2>
-        <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed font-light">
-          Segurança, presença e profundidade. Cada interação é acolhida, protegida e abre espaço para clareza.
+        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
+          Segurança, presença e profundidade para criar um espaço protegido onde você possa se escutar com clareza.
         </p>
       </div>
 
