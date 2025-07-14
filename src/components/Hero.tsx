@@ -53,24 +53,28 @@ const Hero: React.FC = () => {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-[#1D3557] mb-6 leading-snug">
-            Entenda suas emoções. <span className="font-medium">Ganhe clareza.</span>
-          </h1>
+  <span className="whitespace-nowrap">Organize seus sentimentos</span><br />
+  <span className="font-medium">e ganhe clareza mental</span>
+</h1>
+
+
+
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-xl mx-auto md:mx-0 font-light">
-            A Eco te ajuda a transformar sentimentos confusos em insights claros para agir com mais segurança e consciência.
+            Descubra como a Eco transforma sua escrita em um caminho mais consciente – registre memórias, entenda padrões emocionais e evolua com segurança.
           </p>
 
           {/* Call to Action */}
           <div className="flex flex-col items-center md:items-start">
-            <p className="text-sm text-[#7A9EBF] mb-2 font-light">Comece sua jornada hoje</p>
+            <p className="text-sm text-[#7A9EBF] mb-2 font-light">Beta com vagas limitadas</p>
             <a
               href={experienceUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-2xl bg-white/60 backdrop-blur-lg border border-white/30 text-[#1D3557] font-medium text-lg transition-all duration-300 shadow-sm hover:shadow-lg hover:scale-[1.05] hover:bg-white/70"
             >
-              <span>Começar agora</span>
+              <span>Começar grátis e ganhar clareza</span>
               <ArrowRight size={20} className="stroke-1.5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>

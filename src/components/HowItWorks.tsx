@@ -4,26 +4,26 @@ import { MessageCircle, Brain, RefreshCw, BookOpen } from 'lucide-react';
 const steps = [
   {
     id: 1,
-    title: "Compartilhe o que sente",
+    title: "Compartilhe seus sentimentos",
     description: "Confie suas palavras à Eco para entender melhor o que está acontecendo com você.",
     icon: MessageCircle
   },
   {
     id: 2,
-    title: "A Eco compreende e conecta",
-    description: "Analisa o tom emocional e identifica padrões importantes para você.",
+    title: "A Eco compreende você",
+    description: "Analisa seu tom emocional e identifica padrões importantes para ajudar você a refletir.",
     icon: Brain
   },
   {
     id: 3,
-    title: "Receba reflexos sensíveis",
-    description: "Encontre respostas que te ajudam a ver com mais clareza e a se sentir mais calmo.",
+    title: "Receba reflexos claros",
+    description: "Encontre respostas que te ajudam a enxergar com mais clareza e tomar decisões mais conscientes.",
     icon: RefreshCw
   },
   {
     id: 4,
-    title: "Construa sua memória emocional",
-    description: "Guarde momentos importantes para reconhecer como você cresce ao longo do tempo.",
+    title: "Construa sua história emocional",
+    description: "Guarde momentos importantes para reconhecer como você evolui ao longo do tempo.",
     icon: BookOpen
   }
 ];
@@ -39,8 +39,9 @@ const HowItWorks: React.FC = () => {
         <h2 className="text-4xl md:text-5xl font-light text-[#1D3557] text-center mb-6">
           Como funciona?
         </h2>
-        <p className="text-lg md:text-xl font-light text-gray-600 text-center max-w-3xl mx-auto mb-16">
-          Descubra como a Eco transforma sua escrita em um caminho mais consciente. Escreva, reflita e acompanhe sua evolução emocional com cuidado e profundidade.
+        <p className="text-lg md:text-xl font-light text-gray-600 text-center max-w-3xl mx-auto mb-16 leading-relaxed">
+          Veja como a Eco te guia em 4 passos para escrever com mais clareza e consciência.<br />
+          Organize seus sentimentos, reflita e acompanhe sua evolução emocional com cuidado.
         </p>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -54,7 +55,7 @@ const HowItWorks: React.FC = () => {
                   flex items-start w-full text-left px-4 py-3 rounded-2xl transition-all
                   backdrop-blur-lg border border-white/20 shadow
                   ${activeStep === step.id
-                    ? 'bg-white/70 border border-[#E8E3F5] shadow-lg'
+                    ? 'bg-white/80 border border-[#E8E3F5] shadow-lg'
                     : 'bg-white/30 hover:bg-white/50'}
                 `}
               >
@@ -62,7 +63,7 @@ const HowItWorks: React.FC = () => {
                   className={`
                     flex items-center justify-center w-12 h-12 rounded-full border border-white/30 shadow-sm mr-4
                     ${activeStep === step.id
-                      ? 'bg-[#7A9EBF]/80'
+                      ? 'bg-[#7A9EBF]'
                       : 'bg-white/20'}
                   `}
                 >
@@ -113,7 +114,7 @@ const HowItWorks: React.FC = () => {
                     />
                     <div className="absolute inset-0 border border-white/30 rounded-full animate-pulse"></div>
                   </div>
-                  <p className="text-center text-gray-600 mt-6">Analisando sentimentos...</p>
+                  <p className="text-center text-gray-600 mt-6">Analisando suas palavras com cuidado...</p>
                 </div>
               )}
 
@@ -122,7 +123,7 @@ const HowItWorks: React.FC = () => {
                   <div className="text-sm text-gray-400 mb-2">Seu eco</div>
                   <div className="bg-gradient-to-br from-[#7A9EBF]/10 to-[#F7CAC9]/10 rounded-lg p-4 border border-white/50 shadow-sm">
                     <p className="text-gray-800 font-light italic">
-                      "Parece que você está se sentindo sem direção e preso em ciclos. Talvez esteja buscando clareza para conseguir seguir em frente."
+                      "Parece que você está se sentindo sem direção e preso em ciclos. Talvez esteja buscando clareza para seguir em frente."
                     </p>
                   </div>
                 </div>

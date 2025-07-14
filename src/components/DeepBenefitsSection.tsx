@@ -5,33 +5,41 @@ type Benefit = {
   icon: React.ReactNode;
   title: string;
   description: string;
+  inspirations?: string[];
 };
 
 const benefits: Benefit[] = [
   {
     icon: <Headphones size={22} strokeWidth={1.2} />,
     title: 'Autoescuta Radical',
-    description: 'Aprenda a se escutar com honestidade. Use sua escrita para reconhecer emoções e pensamentos sem julgamentos.'
+    description: 'Aprenda a se ouvir com honestidade. Use sua escrita para reconhecer emoções e pensamentos sem julgamentos.'
   },
   {
     icon: <Sparkles size={22} strokeWidth={1.2} />,
     title: 'Clareza Intencional',
-    description: 'Organize pensamentos confusos e transforme em clareza para tomar decisões mais conscientes.'
+    description: 'Transforme pensamentos confusos em clareza. Organize o que sente e tome decisões com mais consciência.'
   },
   {
     icon: <Flame size={22} strokeWidth={1.2} />,
     title: 'Ritual de Consciência',
-    description: 'Transforme o escrever em um ritual de presença. Desacelere, conecte-se consigo e encontre sentido no que vive.'
+    description: 'Escrever vira um momento de presença. Desacelere, conecte-se consigo mesmo e dê sentido ao que vive.'
   },
   {
     icon: <Waves size={22} strokeWidth={1.2} />,
     title: 'Navegação Emocional',
-    description: 'Aprenda a navegar suas emoções. Encare medos e alegrias com consciência para compreender suas causas.'
+    description: 'Aprenda a lidar com medos e alegrias com mais consciência. Descubra as causas e transforme sua relação com o que sente.'
   },
   {
     icon: <Layers size={22} strokeWidth={1.2} />,
-    title: 'Construção de Sentido',
-    description: 'Use a escrita para dar significado ao que sente. Reflita sobre padrões e transforme confusão em clareza e propósito.'
+    title: 'Fundamentos & Inspirações',
+    description: 'Nossas reflexões são inspiradas em filosofias e abordagens psicológicas que apoiam sua jornada de autoconhecimento e clareza.',
+    inspirations: [
+      'Marco Aurélio (Estoicismo)',
+      'Eckhart Tolle (O Poder do Agora)',
+      'Daniel Kahneman (Heurísticas)',
+      'Gestalt',
+      'Brené Brown (Vulnerabilidade)'
+    ]
   }
 ];
 
@@ -43,61 +51,60 @@ const BenefitsAccordion: React.FC = () => {
   };
 
   return (
-    <section id="beneficios" className="py-16 md:py-20 px-4 md:px-6 bg-[#F8F6FA]">
-      <div className="max-w-3xl mx-auto text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-light text-[#1D3557] mb-3">
-          Convites para aprofundar sua jornada
+    <section id="beneficios" className="py-24 px-4 md:px-8 bg-[#F8F6FA]">
+      <div className="max-w-4xl mx-auto text-center mb-16">
+        <h2 className="text-[2.5rem] md:text-5xl font-light text-[#1D3557] mb-5 tracking-tight leading-tight">
+          Convites para se aprofundar
         </h2>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
-          Explore reflexões guiadas para transformar confusão em clareza. Organize pensamentos, compreenda emoções e tome decisões mais conscientes.
+        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
+          Descubra reflexões guiadas para transformar confusão em clareza. Organize pensamentos e tome decisões mais conscientes.
         </p>
       </div>
 
-      <div className="max-w-2xl mx-auto space-y-4">
+      <div className="max-w-2xl mx-auto space-y-6">
         {benefits.map((benefit, index) => (
           <div
             key={index}
-            className={`
-              rounded-3xl
-              border border-gray-200/60
-              bg-white/60
-              backdrop-blur-xl
-              shadow-[0_6px_20px_-8px_rgba(0,0,0,0.08)]
-              hover:shadow-[0_10px_25px_-8px_rgba(0,0,0,0.15)]
+            className="
+              rounded-[2rem]
+              border border-white/40
+              bg-gradient-to-br from-white/60 to-white/30
+              backdrop-blur-lg
+              shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)]
               transition-all duration-300
-            `}
+              hover:shadow-[0_14px_40px_-12px_rgba(0,0,0,0.12)]
+            "
           >
             <button
               onClick={() => toggleIndex(index)}
               className="
                 flex items-center justify-between w-full
-                px-4 md:px-6 py-5
+                px-6 md:px-8 py-5
                 text-left
                 focus:outline-none
-                transition
               "
             >
               <div className="flex items-center space-x-4">
-                <div className="
-                  flex items-center justify-center
-                  w-10 h-10 md:w-12 md:h-12
-                  rounded-full
-                  bg-gradient-to-br from-white/70 to-gray-100/50
-                  backdrop-blur
-                  border border-gray-300/50
-                  shadow-inner
-                  hover:shadow
-                  transition-all duration-300
-                  text-[#1D3557]
-                ">
+                <div
+                  className="
+                    flex items-center justify-center
+                    w-11 h-11 md:w-12 md:h-12
+                    rounded-full
+                    bg-white/50
+                    backdrop-blur
+                    border border-white/30
+                    shadow-inner
+                    text-[#1D3557]
+                  "
+                >
                   {benefit.icon}
                 </div>
-                <span className="text-base md:text-lg text-[#1D3557] font-normal">
+                <span className="text-lg md:text-xl text-[#1D3557] font-medium">
                   {benefit.title}
                 </span>
               </div>
               <ChevronDown
-                size={20}
+                size={22}
                 strokeWidth={1.5}
                 className={`text-[#7A9EBF] transition-transform duration-300 ${
                   activeIndex === index ? 'rotate-180' : ''
@@ -106,11 +113,32 @@ const BenefitsAccordion: React.FC = () => {
             </button>
             <div
               className={`overflow-hidden transition-all duration-500 ${
-                activeIndex === index ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'
+                activeIndex === index ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="border-t border-gray-100 px-4 md:px-6 py-4 text-gray-600 text-sm md:text-base leading-relaxed">
-                {benefit.description}
+              <div className="border-t border-gray-100/50 px-6 md:px-8 py-5 text-gray-600 text-sm md:text-base leading-relaxed space-y-4">
+                <p>{benefit.description}</p>
+                {benefit.inspirations && (
+                  <div className="flex flex-wrap gap-2">
+                    {benefit.inspirations.map((source, i) => (
+                      <span
+                        key={i}
+                        className="
+                          inline-flex items-center
+                          px-3 py-1.5
+                          rounded-full
+                          bg-white/50
+                          backdrop-blur-md
+                          border border-white/30
+                          text-sm text-[#1D3557]/80
+                          shadow-sm
+                        "
+                      >
+                        {source}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
