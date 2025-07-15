@@ -10,29 +10,29 @@ type Benefit = {
 
 const benefits: Benefit[] = [
   {
-    icon: <Headphones size={22} strokeWidth={1.2} />,
-    title: 'Autoescuta Radical',
-    description: 'Aprenda a se ouvir com honestidade. Use sua escrita para reconhecer emoções e pensamentos sem julgamentos.'
+    icon: <Headphones size={20} strokeWidth={1.2} />,
+    title: 'Autoescuta Cuidadosa',
+    description: 'Aprenda a se ouvir com gentileza. Use sua escrita para reconhecer emoções e pensamentos com clareza e sem julgamentos.'
   },
   {
-    icon: <Sparkles size={22} strokeWidth={1.2} />,
-    title: 'Clareza Intencional',
-    description: 'Transforme pensamentos confusos em clareza. Organize o que sente e tome decisões com mais consciência.'
+    icon: <Sparkles size={20} strokeWidth={1.2} />,
+    title: 'Clareza Emocional',
+    description: 'Transforme pensamentos confusos em direção. Organize o que sente para tomar decisões com mais segurança e consciência.'
   },
   {
-    icon: <Flame size={22} strokeWidth={1.2} />,
-    title: 'Ritual de Consciência',
-    description: 'Escrever vira um momento de presença. Desacelere, conecte-se consigo mesmo e dê sentido ao que vive.'
+    icon: <Flame size={20} strokeWidth={1.2} />,
+    title: 'Ritual de Presença',
+    description: 'Escrever se torna um momento de pausa e conexão. Cultive atenção plena para dar sentido ao que vive.'
   },
   {
-    icon: <Waves size={22} strokeWidth={1.2} />,
+    icon: <Waves size={20} strokeWidth={1.2} />,
     title: 'Navegação Emocional',
-    description: 'Aprenda a lidar com medos e alegrias com mais consciência. Descubra as causas e transforme sua relação com o que sente.'
+    description: 'Explore suas emoções com profundidade. Encontre causas, entenda padrões e transforme sua relação com o que sente.'
   },
   {
-    icon: <Layers size={22} strokeWidth={1.2} />,
+    icon: <Layers size={20} strokeWidth={1.2} />,
     title: 'Fundamentos & Inspirações',
-    description: 'Nossas reflexões são inspiradas em filosofias e abordagens psicológicas que apoiam sua jornada de autoconhecimento e clareza.',
+    description: 'Reflexões baseadas em filosofias e psicologia para apoiar sua jornada de autoconhecimento.',
     inspirations: [
       'Marco Aurélio (Estoicismo)',
       'Eckhart Tolle (O Poder do Agora)',
@@ -42,7 +42,6 @@ const benefits: Benefit[] = [
     ]
   }
 ];
-
 const BenefitsAccordion: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -51,60 +50,61 @@ const BenefitsAccordion: React.FC = () => {
   };
 
   return (
-    <section id="beneficios" className="py-24 px-4 md:px-8 bg-[#F8F6FA]">
-      <div className="max-w-4xl mx-auto text-center mb-16">
-        <h2 className="text-[2.5rem] md:text-5xl font-light text-[#1D3557] mb-5 tracking-tight leading-tight">
-          Convites para se aprofundar
+    <section id="beneficios" className="py-20 px-4 md:px-8 bg-[#F8F6FA]">
+      <div className="max-w-4xl mx-auto text-center mb-14">
+        <h2 className="text-[2.2rem] md:text-5xl font-light text-[#1D3557] mb-4 tracking-tight leading-tight">
+          Por que escolher a <span className="text-[#275C7A] font-semibold">Eco</span>
         </h2>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
-          Descubra reflexões guiadas para transformar confusão em clareza. Organize pensamentos e tome decisões mais conscientes.
+        <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
+          Cultive <span className="text-[#275C7A] font-medium">clareza emocional</span> com cuidado e presença.
+          Um espaço para se ouvir, refletir e transformar o que sente com segurança.
         </p>
       </div>
 
-      <div className="max-w-2xl mx-auto space-y-6">
+      <div className="max-w-2xl mx-auto space-y-4">
         {benefits.map((benefit, index) => (
           <div
             key={index}
             className="
-              rounded-[2rem]
-              border border-white/40
-              bg-gradient-to-br from-white/60 to-white/30
+              rounded-xl
+              border border-white/30
+              bg-gradient-to-br from-white/40 to-white/20
               backdrop-blur-lg
-              shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)]
+              shadow-[0_2px_6px_-2px_rgba(0,0,0,0.05)]
               transition-all duration-300
-              hover:shadow-[0_14px_40px_-12px_rgba(0,0,0,0.12)]
+              hover:shadow-[0_4px_10px_-3px_rgba(0,0,0,0.06)]
             "
           >
             <button
               onClick={() => toggleIndex(index)}
               className="
                 flex items-center justify-between w-full
-                px-6 md:px-8 py-5
+                px-4 md:px-6 py-3 md:py-4
                 text-left
                 focus:outline-none
               "
             >
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-3 md:space-x-4">
                 <div
                   className="
                     flex items-center justify-center
-                    w-11 h-11 md:w-12 md:h-12
-                    rounded-full
-                    bg-white/50
+                    w-9 h-9 md:w-10 md:h-10
+                    rounded-lg
+                    bg-white/40
                     backdrop-blur
-                    border border-white/30
+                    border border-white/20
                     shadow-inner
                     text-[#1D3557]
                   "
                 >
                   {benefit.icon}
                 </div>
-                <span className="text-lg md:text-xl text-[#1D3557] font-medium">
+                <span className="text-base md:text-lg text-[#1D3557] font-medium">
                   {benefit.title}
                 </span>
               </div>
               <ChevronDown
-                size={22}
+                size={20}
                 strokeWidth={1.5}
                 className={`text-[#7A9EBF] transition-transform duration-300 ${
                   activeIndex === index ? 'rotate-180' : ''
@@ -116,7 +116,7 @@ const BenefitsAccordion: React.FC = () => {
                 activeIndex === index ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="border-t border-gray-100/50 px-6 md:px-8 py-5 text-gray-600 text-sm md:text-base leading-relaxed space-y-4">
+              <div className="border-t border-gray-100/40 px-4 md:px-6 py-4 text-gray-600 text-sm md:text-base leading-relaxed space-y-4">
                 <p>{benefit.description}</p>
                 {benefit.inspirations && (
                   <div className="flex flex-wrap gap-2">
@@ -127,9 +127,9 @@ const BenefitsAccordion: React.FC = () => {
                           inline-flex items-center
                           px-3 py-1.5
                           rounded-full
-                          bg-white/50
-                          backdrop-blur-md
-                          border border-white/30
+                          bg-white/40
+                          backdrop-blur
+                          border border-white/20
                           text-sm text-[#1D3557]/80
                           shadow-sm
                         "
